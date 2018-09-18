@@ -2,7 +2,7 @@ using System.ComponentModel.DataAnnotations;
 
 namespace PPI.API.Dtos
 {
-    public class UserForRegisterDto
+    public class UserRegisterDto
     {
         [Required]
         public string Username { get; set; }
