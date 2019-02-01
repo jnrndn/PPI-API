@@ -4,7 +4,7 @@ using PPI.API.Models;
 
 namespace PPI.API.Data
 {
-    public class AuthRepository : IAuthRrepository
+    public class AuthRepository : IAuthRepository
     {
         private readonly DataContext _context;
         
@@ -66,6 +66,15 @@ namespace PPI.API.Data
             
             return false;
             
+        }
+
+        public async Task<bool> Recover(string email)
+        {
+            if (await _context.Users.AnyAsync(x => x.Email == email))
+                // TODO: send email
+                return true;
+
+            return false;
         }
     }
 }
